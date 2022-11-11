@@ -6,8 +6,9 @@ import IconBat from './components/icons/IconBat.vue'
 
 <template>
   <header>
+    <!-- <link rel="icon" type="image/x-icon" src="./public/favicon.ico"> -->
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
+    <link rel="icon" href="favicon.ico">
     <div class="wrapper">
       <PPWelcome msg="Välkommen till Pingisportalen!" />
       <IconBat />
