@@ -11,7 +11,7 @@ defineProps({
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
     <h3>
-      Pingisportalen - stället för alla pingisintresserade! Här är en massa bra länkar och vertyg inkluderade - det enda sida du behöver :)
+      Pingisportalen - stället för alla pingisintresserade! Här är en massa bra länkar och vertyg inkluderade - den enda sida du behöver :)
     </h3>
   </div>
 </template>

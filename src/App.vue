@@ -1,6 +1,7 @@
 <script setup>
 import PPWelcome from './components/PPWelcome.vue'
 import TheWelcome from './components/TheWelcome.vue'
+import IconBat from './components/icons/IconBat.vue'
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import TheWelcome from './components/TheWelcome.vue'
 
     <div class="wrapper">
       <PPWelcome msg="Välkommen till Pingisportalen!" />
+      <IconBat />
     </div>
   </header>
 
