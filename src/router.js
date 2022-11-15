@@ -9,11 +9,11 @@ export default createRouter({
       component: Home,
     },
     {
-      path: '/about',
+      path: '/pingisportalen/about',
       component: () => import('@/views/About.vue'),
     },
     {
-      path: '/contact',
+      path: '/pingisportalen/contact',
       component: () => import('@/views/Contact.vue'),
     },
     {
