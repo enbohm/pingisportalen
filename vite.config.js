@@ -5,7 +5,15 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/pingisportalen/", 
+  base: "/pingisportalen/",
+  build: {
+    rollupOptions: {
+      input: {
+        index: 'index.html',
+        404: '404.html'
+      }
+    }
+  },
   plugins: [vue()],
   resolve: {
     alias: {
