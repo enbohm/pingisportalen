@@ -5,7 +5,7 @@ export default createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: '/pingisportalen',
+      path: '/',
       component: Home,
     },
     {
@@ -16,5 +16,9 @@ export default createRouter({
       path: '/contact',
       component: () => import('@/views/Contact.vue'),
     },
+    {
+      path: "/:catchAll(.*)",
+      component: Home,
+    }
   ],
 })
