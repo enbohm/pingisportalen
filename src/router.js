@@ -9,6 +9,10 @@ export default createRouter({
       component: Home,
     },
     {
+      path: '/pingisportalen/swedentour',
+      component: () => import('@/views/SwedenTour.vue'),
+    },
+    {
       path: '/pingisportalen/about',
       component: () => import('@/views/About.vue'),
     },

@@ -1,3 +1,3 @@
 <template>
-    <h2>About</h2>
+    <h2>Om</h2>
 </template>
