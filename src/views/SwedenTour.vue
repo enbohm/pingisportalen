@@ -13,5 +13,5 @@ export default {
   <p>Information om Sweden Tour kan du hitta på <a
       href="https://www.svenskbordtennis.com/tavling/nationellatavlingar/SwedenTour/" target="_blank">denna
       länk</a>. Nedan finns statisk om de olika spelarna på touren.</p>
-  <BarChart height="600" width="600"/>
+  <BarChart :height="600" :width="600"/>
 </template>
