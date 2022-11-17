@@ -23,7 +23,7 @@ export default {
         chartId: "bar-chart"
       },
       chartOptions: {
-        responsive: false,
+        responsive: true,
       }
     }
   }
@@ -34,5 +34,5 @@ export default {
   <p>Information om Sweden Tour kan du hitta på <a
       href="https://www.svenskbordtennis.com/tavling/nationellatavlingar/SwedenTour/" target="_blank">denna
       länk</a>. Nedan finns statisk om de olika spelarna på touren.</p>
-  <BarChart :height="200" :chart-data="chartData"/>
+  <BarChart :height="300" :chart-data="chartData"/>
 </template>
