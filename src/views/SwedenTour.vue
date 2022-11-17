@@ -5,6 +5,27 @@ export default {
   name: 'App',
   components: {
     BarChart
+  },
+  data() {
+    return {
+      chartData: {
+        labels: ['Halmstad', 'Rekordspelen', 'Ängby', 'Flyman', 'Söderspelen', 'Eslövsspelen', 'Safir', 'Spårvägsspelen'],
+        datasets: [{
+          data: [9, 16, 9, 0, 0, 0, 0, 0],
+          backgroundColor: '#33BBFF',
+          label: "Jane Doe"
+        },
+        {
+          data: [9, 5, 14, 0, 0, 0, 0, 0],
+          backgroundColor: 'red',
+          label: "John Doe"
+        }],
+        chartId: "bar-chart"
+      },
+      chartOptions: {
+        responsive: false,
+      }
+    }
   }
 }
 </script>
@@ -13,5 +34,5 @@ export default {
   <p>Information om Sweden Tour kan du hitta på <a
       href="https://www.svenskbordtennis.com/tavling/nationellatavlingar/SwedenTour/" target="_blank">denna
       länk</a>. Nedan finns statisk om de olika spelarna på touren.</p>
-  <BarChart :height="600" :width="600"/>
+  <BarChart :height="200" :chart-data="chartData"/>
 </template>

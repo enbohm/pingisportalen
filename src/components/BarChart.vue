@@ -21,17 +21,17 @@ export default {
       type: String,
       default: 'label'
     },
-    width: {
-      type: Number,
-      default: 600
-    },
-    height: {
-      type: Number,
-      default: 600
-    },
     cssClasses: {
       default: '',
       type: String
+    },
+    height: {
+      default: 400,
+      type: Number
+    },
+    width: {
+      default: 400,
+      type: Number
     },
     styles: {
       type: Object,
@@ -40,27 +40,13 @@ export default {
     plugins: {
       type: Object,
       default: () => { }
-    }
-  },
-  data() {
-    return {
-      chartData: {
-        labels: ['Halmstad', 'Rekordspelen', 'Ängby', 'Flyman', 'Söderspelen', 'Eslövsspelen', 'Safir', 'Spårvägsspelen'],
-        datasets: [{
-          data: [9, 16, 9, 0, 0, 0, 0, 0], 
-          backgroundColor: '#33BBFF', 
-          label: "Jane Doe"
-        }, 
-        {
-          data: [9, 5, 55, 0, 0, 0, 0, 0], 
-          backgroundColor: 'red', 
-          label: "John Doe"
-        }],
-        chartId: "bar-chart"
-      },
-      chartOptions: {
-        responsive: false,
-      }
+    }, chartData: {
+      type: Object,
+      required: true
+    },
+    chartOptions: {
+      type: Object,
+      default: () => { }
     }
   }
 }
