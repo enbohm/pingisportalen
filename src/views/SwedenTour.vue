@@ -64,11 +64,11 @@ export default {
     </div>
 
     <div id="line" class="tabcontent">
-      <p>Paris is the capital of France.</p>
+      <p>Line graph of points coming here...</p>
     </div>
 
     <div id="trend" class="tabcontent">
-      <p>Tokyo is the capital of Japan.</p>
+      <p>Trending players...</p>
     </div>
   </div>
 
