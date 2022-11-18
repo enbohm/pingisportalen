@@ -1,10 +1,12 @@
 <script>
 import BarChart from '../components/BarChart.vue'
+import LineChart from '../components/LineChart.vue'
 
 export default {
   name: 'SwedenTour',
   components: {
-    BarChart
+    BarChart,
+    LineChart
   },
   methods: {
     openTab: function (evt, tabName) {
@@ -23,7 +25,7 @@ export default {
   },
   data() {
     return {
-      chartData: {
+      barChartData: {
         labels: ['Halmstad', 'Rekordspelen', 'Ängby', 'Flyman', 'Söderspelen', 'Eslövsspelen', 'Safir', 'Spårvägsspelen'],
         datasets: [{
           data: [9, 16, 9, 0, 0, 0, 0, 0],
@@ -31,15 +33,41 @@ export default {
           label: "Jane Doe"
         },
         {
-          data: [9, 5, 14, 0, 0, 0, 0, 0],
+          data: [9, 5, 16, 0, 0, 0, 0, 0],
           backgroundColor: 'red',
           label: "John Doe"
+        }],
+        chartId: "bar-chart"
+      },
+      lineChartData: {
+        labels: ['Halmstad', 'Rekordspelen', 'Ängby', 'Flyman', 'Söderspelen', 'Eslövsspelen', 'Safir', 'Spårvägsspelen'],
+        datasets: [{
+          data: [9, 16, 9, 0, 0, 0, 0, 0],
+          backgroundColor: '#33BBFF',
+          borderColor: '#33BBFF',
+          label: "Axel von G"
+        },
+        {
+          data: [9, 5, 16, 0, 0, 0, 0, 0],
+          backgroundColor: 'red',
+          borderColor: 'red',
+          label: "Noah af E"
         }],
         chartId: "bar-chart"
       },
       chartOptions: {
         responsive: true,
         maintainAspectRatio: true,
+        tooltips: {
+          mode: 'index',
+          callbacks: {
+            label(tooltipItem, data) {
+              const label = data.datasets[tooltipItem.datasetIndex].label;
+              const value = numeral(tooltipItem.yLabel).format('0,0');
+              return `${label}: ${value}`;
+            }
+          }
+        }
       }
     }
   }
@@ -58,13 +86,8 @@ export default {
       <button class="tablinks" @click="openTab($event, 'line')">Summering</button>
       <button class="tablinks" @click="openTab($event, 'trend')">Trend</button>
     </div>
-
-    <BarChart :chart-data="chartData" :chart-options="chartOptions" />
-
-    <div id="line" class="tabcontent">
-      <p>Line graph of points coming here...</p>
-    </div>
-
+    <BarChart :chart-data="barChartData" :chart-options="chartOptions" />
+    <LineChart :chart-data="lineChartData" :chart-options="chartOptions" />
     <div id="trend" class="tabcontent">
       <p>Trending players...</p>
     </div>
