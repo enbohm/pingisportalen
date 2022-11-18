@@ -1,7 +1,25 @@
 <template>
-  <Bar :chart-options="chartOptions" :chart-data="chartData" :chart-id="chartId" :dataset-id-key="datasetIdKey"
-    :plugins="plugins" :css-classes="cssClasses" :styles="styles" :width="width" :height="height" />
+  <div id="bar" class="tabcontent">
+    <Bar :chart-options="chartOptions" :chart-data="chartData" :chart-id="chartId" :dataset-id-key="datasetIdKey"
+      :plugins="plugins" :css-classes="cssClasses" :styles="styles" :width="width" :height="height" />
+  </div>
 </template>
+
+<style>
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+  position: relative;
+}
+
+canvas {
+  width: 100% !important;
+  max-width: 800px;
+  max-height: 800px;
+  height: auto !important;
+}
+</style>
 
 <script>
 import { Bar } from 'vue-chartjs'
@@ -40,7 +58,7 @@ export default {
     plugins: {
       type: Object,
       default: () => { }
-    }, 
+    },
     chartData: {
       type: Object,
       required: true

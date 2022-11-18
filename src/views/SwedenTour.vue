@@ -59,9 +59,7 @@ export default {
       <button class="tablinks" @click="openTab($event, 'trend')">Trend</button>
     </div>
 
-    <div id="bar" class="tabcontent">
-      <BarChart :chart-data="chartData" :chart-options="chartOptions"/>
-    </div>
+    <BarChart :chart-data="chartData" :chart-options="chartOptions" />
 
     <div id="line" class="tabcontent">
       <p>Line graph of points coming here...</p>
@@ -75,7 +73,6 @@ export default {
 </template>
 
 <style>
-
 .tab {
   overflow: hidden;
   border-bottom: 1px solid #ccc;
@@ -102,13 +99,5 @@ export default {
 /* Create an active/current tablink class */
 .tab button.active {
   background-color: var(--vt-c-black-soft);
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border-top: none;
-  position: relative;
 }
 </style>
