@@ -6,6 +6,21 @@ export default {
   components: {
     BarChart
   },
+  methods: {
+    openTab: function (evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace("active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  },
   data() {
     return {
       chartData: {
@@ -31,9 +46,69 @@ export default {
 }
 </script>
 <template>
-  <h2>Sweden Tour</h2>
-  <p>Information om Sweden Tour kan du hitta på <a
-      href="https://www.svenskbordtennis.com/tavling/nationellatavlingar/SwedenTour/" target="_blank">denna
-      länk</a>. Nedan finns statisk om de olika spelarna på touren.</p>
-  <BarChart :height="400" :width="400" :chart-data="chartData" :chart-options="chartOptions"/>
+  <div class="info">
+    <h2>Sweden Tour</h2>
+    <p>Information om Sweden Tour kan du hitta på <a
+        href="https://www.svenskbordtennis.com/tavling/nationellatavlingar/SwedenTour/" target="_blank">denna
+        länk</a>. Nedan finns statisk om de olika spelarna på touren.</p>
+  </div>
+  <div class="tabcontainer">
+    <div class="tab">
+      <button class="tablinks" @click="openTab($event, 'bar')">Poäng</button>
+      <button class="tablinks" @click="openTab($event, 'line')">Summering</button>
+      <button class="tablinks" @click="openTab($event, 'trend')">Trend</button>
+    </div>
+
+    <div id="bar" class="tabcontent">
+      <BarChart :chart-data="chartData" :chart-options="chartOptions"/>
+    </div>
+
+    <div id="line" class="tabcontent">
+      <p>Paris is the capital of France.</p>
+    </div>
+
+    <div id="trend" class="tabcontent">
+      <p>Tokyo is the capital of Japan.</p>
+    </div>
+  </div>
+
 </template>
+
+<style>
+
+.tab {
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  color: var(--color-text);
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: var(--vt-c-black-soft);
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: var(--vt-c-black-soft);
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+  position: relative;
+}
+</style>

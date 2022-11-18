@@ -26,11 +26,11 @@ export default {
       type: String
     },
     height: {
-      default: 400,
+      default: 600,
       type: Number
     },
     width: {
-      default: 400,
+      default: 600,
       type: Number
     },
     styles: {
