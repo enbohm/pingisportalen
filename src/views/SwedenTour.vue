@@ -30,12 +30,12 @@ export default {
         datasets: [{
           data: [9, 16, 9, 0, 0, 0, 0, 0],
           backgroundColor: '#33BBFF',
-          label: "Jane Doe"
+          label: "Noah af E"
         },
         {
           data: [9, 5, 16, 0, 0, 0, 0, 0],
           backgroundColor: 'red',
-          label: "John Doe"
+          label: "Axel von G"
         }],
         chartId: "bar-chart"
       },
@@ -45,13 +45,13 @@ export default {
           data: [9, 16, 9, 0, 0, 0, 0, 0],
           backgroundColor: '#33BBFF',
           borderColor: '#33BBFF',
-          label: "Axel von G"
+          label: "Noah af E"
         },
         {
           data: [9, 5, 16, 0, 0, 0, 0, 0],
           backgroundColor: 'red',
           borderColor: 'red',
-          label: "Noah af E"
+          label: "Axel von G"
         }],
         chartId: "bar-chart"
       },
