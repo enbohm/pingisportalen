@@ -2,7 +2,7 @@
 import BarChart from '../components/BarChart.vue'
 
 export default {
-  name: 'App',
+  name: 'SwedenTour',
   components: {
     BarChart
   },

@@ -40,7 +40,8 @@ export default {
     plugins: {
       type: Object,
       default: () => { }
-    }, chartData: {
+    }, 
+    chartData: {
       type: Object,
       required: true
     },
