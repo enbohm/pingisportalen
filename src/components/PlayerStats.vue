@@ -12,12 +12,20 @@
         <div class="tab">
             <button class="tablinks" @click="openTab($event, 'bar')">Poäng</button>
             <button class="tablinks" @click="openTab($event, 'line')">Summering</button>
+            <button class="tablinks" @click="openTab($event, 'top12')">Top 20</button>
             <button class="tablinks" @click="openTab($event, 'trend')">Trend</button>
         </div>
         <BarChart :chart-data="barChartData" :chart-options="chartOptions" />
         <LineChart :chart-data="lineChartData" :chart-options="chartOptions" />
+        
+        <div id="top12" class="tabcontent">
+            <div class="item player" v-for="(player, index) in top20" :key="player">
+                {{ ++index }}. {{ Object.values(player)[0] }} {{ player.total }} poäng.
+            </div>
+        </div>
+
         <div id="trend" class="tabcontent">
-            <p>Trending players...</p>
+            Trending player data...
         </div>
     </div>
 </template>
@@ -35,32 +43,34 @@ export default {
     },
     data() {
         const tourLables = ['Halmstad', 'Rekordspelen', 'Ängby', 'Flyman', 'Söderspelen', 'Eslövsspelen', 'Safir', 'Spårvägsspelen'];
+        const playerOneColor = '#33BBFF'
+        const playerTwoColor = 'red';
         return {
             selectedPlayers: [],
             searchInput: '',
             barChartData: {
                 labels: tourLables,
                 datasets: [{
-                    backgroundColor: '#33BBFF'
-                }, {
+                    backgroundColor: playerOneColor
+                },
+                {
+                    data: [0, 0, 0, 0, 0, 0, 0, 0],
                     backgroundColor: 'red',
-                    label: ""
+                    label: ''
                 }],
                 chartId: "bar-chart"
             },
             lineChartData: {
                 labels: tourLables,
                 datasets: [{
-                    data: [9, 16, 9, 0, 0, 0, 0, 0],
-                    backgroundColor: '#33BBFF',
-                    borderColor: '#33BBFF',
-                    label: "Noah af E"
+                    backgroundColor: playerOneColor,
+                    borderColor: playerOneColor
                 },
                 {
-                    data: [9, 5, 16, 0, 0, 0, 0, 0],
-                    backgroundColor: 'red',
-                    borderColor: 'red',
-                    label: "Axel von G"
+                    data: [0, 0, 0, 0, 0, 0, 0, 0],
+                    backgroundColor: playerTwoColor,
+                    borderColor: playerTwoColor,
+                    label: ''
                 }],
                 chartId: "bar-chart"
             },
@@ -86,11 +96,16 @@ export default {
             document.getElementsByClassName("tabcontainer")[0].style.visibility = "hidden";
             this.selectedPlayers.length = 0;
             this.searchInput = '';
+
             this.barChartData.datasets[0].data.length = 0;
             this.barChartData.datasets[0].label = '';
+            this.lineChartData.datasets[0].data.length = 0;
+            this.lineChartData.datasets[0].label = '';
             if (this.selectedPlayers.length > 1) {
                 this.barChartData.datasets[1].data.length = 0;
                 this.barChartData.datasets[1].label = '';
+                this.lineChartData.datasets[1].data.length = 0;
+                this.lineChartData.datasets[1].label = '';
             }
         },
         selectPlayer: function (evt, player) {
@@ -108,10 +123,14 @@ export default {
             const playerOne = this.selectedPlayers[0];
             this.barChartData.datasets[0].label = Object.values(playerOne)[0];
             this.barChartData.datasets[0].data = [playerOne.p1, playerOne.p2, playerOne.p3, playerOne.p4, playerOne.p5, playerOne.p6, playerOne.p7, playerOne.p8];
+            this.lineChartData.datasets[0].label = Object.values(playerOne)[0];
+            this.lineChartData.datasets[0].data = [playerOne.p1, playerOne.p2, playerOne.p3, playerOne.p4, playerOne.p5, playerOne.p6, playerOne.p7, playerOne.p8];
             if (this.selectedPlayers.length > 1) {
                 const playerTwo = this.selectedPlayers[1];
                 this.barChartData.datasets[1].label = Object.values(playerTwo)[0]
                 this.barChartData.datasets[1].data = [playerTwo.p1, playerTwo.p2, playerTwo.p3, playerTwo.p4, playerTwo.p5, playerTwo.p6, playerTwo.p7, playerTwo.p8];
+                this.lineChartData.datasets[1].label = Object.values(playerTwo)[0]
+                this.lineChartData.datasets[1].data = [playerTwo.p1, playerTwo.p2, playerTwo.p3, playerTwo.p4, playerTwo.p5, playerTwo.p6, playerTwo.p7, playerTwo.p8];
             }
         },
         openTab: function (evt, tabName) {
@@ -134,6 +153,10 @@ export default {
                 return "";
             return csv.filter((player) =>
                 Object.values(player)[0].toLowerCase().includes(this.searchInput.toLowerCase()));
+        },
+        top20() {
+            const sorted = [...csv];
+            return sorted.sort((p1, p2) => p2.total - p1.total).slice(0,20);
         }
     }
 };
