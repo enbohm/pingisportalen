@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import BarChart from '../components/BarChart.vue'
-import LineChart from '../components/LineChart.vue'
+import BarChart from './BarChart.vue'
+import LineChart from './LineChart.vue'
 
 import csv from '../data/p14.csv';
 export default {
@@ -84,12 +84,19 @@ export default {
         clearSearch: function (evt) {
             document.getElementById("searchPlayer").value = "";
             document.getElementsByClassName("tabcontainer")[0].style.visibility = "hidden";
-            this.selectedPlayers = [];
+            this.selectedPlayers.length = 0;
             this.searchInput = '';
+            this.barChartData.datasets[0].data.length = 0;
+            this.barChartData.datasets[0].label = '';
+            if (this.selectedPlayers.length > 1) {
+                this.barChartData.datasets[1].data.length = 0;
+                this.barChartData.datasets[1].label = '';
+            }
         },
         selectPlayer: function (evt, player) {
-            if (this.selectedPlayers.length == 0)
+            if (this.selectedPlayers.length == 0) {
                 this.selectedPlayers[0] = player;
+            }
             else {
                 this.selectedPlayers[1] = player;
             }
