@@ -17,7 +17,7 @@
         </div>
         <BarChart :chart-data="barChartData" :chart-options="chartOptions" />
         <LineChart :chart-data="lineChartData" :chart-options="chartOptions" />
-        
+
         <div id="top12" class="tabcontent">
             <div class="item player" v-for="(player, index) in top20" :key="player">
                 {{ ++index }}. {{ Object.values(player)[0] }} {{ player.total }} poäng.
@@ -156,7 +156,7 @@ export default {
         },
         top20() {
             const sorted = [...csv];
-            return sorted.sort((p1, p2) => p2.total - p1.total).slice(0,20);
+            return sorted.sort((p1, p2) => p2.total - p1.total).slice(0, 20);
         }
     }
 };
@@ -186,12 +186,25 @@ export default {
 }
 
 /* Change background color of buttons on hover */
+
+
 .tab button:hover {
-    background-color: var(--vt-c-black-soft);
+    background-color: var(--vt-c-white-mute);
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-    background-color: var(--vt-c-black-soft);
+    background-color: var(--vt-c-white-mute);
+}
+
+@media (prefers-color-scheme: dark) {
+    .tab button:hover {
+        background-color: var(--vt-c-black-soft);
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+        background-color: var(--vt-c-black-soft);
+    }
 }
 </style>
