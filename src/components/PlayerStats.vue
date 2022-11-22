@@ -34,7 +34,7 @@
 import BarChart from './BarChart.vue'
 import LineChart from './LineChart.vue'
 
-import csv from '../data/p14.csv';
+import p14Data from '../data/p14.csv';
 export default {
     name: "SearchPlayer",
     components: {
@@ -94,19 +94,20 @@ export default {
         clearSearch: function (evt) {
             document.getElementById("searchPlayer").value = "";
             document.getElementsByClassName("tabcontainer")[0].style.visibility = "hidden";
-            this.selectedPlayers.length = 0;
             this.searchInput = '';
 
             this.barChartData.datasets[0].data.length = 0;
             this.barChartData.datasets[0].label = '';
             this.lineChartData.datasets[0].data.length = 0;
             this.lineChartData.datasets[0].label = '';
+            
             if (this.selectedPlayers.length > 1) {
                 this.barChartData.datasets[1].data.length = 0;
                 this.barChartData.datasets[1].label = '';
                 this.lineChartData.datasets[1].data.length = 0;
                 this.lineChartData.datasets[1].label = '';
             }
+            this.selectedPlayers.length = 0;
         },
         selectPlayer: function (evt, player) {
             if (this.selectedPlayers.length == 0) {
@@ -151,11 +152,11 @@ export default {
         filteredList() {
             if (!this.searchInput)
                 return "";
-            return csv.filter((player) =>
+            return p14Data.filter((player) =>
                 Object.values(player)[0].toLowerCase().includes(this.searchInput.toLowerCase()));
         },
         top20() {
-            const sorted = [...csv];
+            const sorted = [...p14Data];
             return sorted.sort((p1, p2) => p2.total - p1.total).slice(0, 20);
         }
     }
