@@ -1,5 +1,5 @@
 <template>
-  <h2>Pingis länkar</h2>
+  <h2>Pingislänkar</h2>
   <p>Nedan finns ett urval av länkar som alla pingisnördar behöver :) </p>
   <ul>
     <li>
