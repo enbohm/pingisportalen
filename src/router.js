@@ -13,12 +13,12 @@ export default createRouter({
       component: () => import('@/views/SwedenTour.vue'),
     },
     {
-      path: '/pingisportalen/about',
-      component: () => import('@/views/About.vue'),
+      path: '/pingisportalen/links',
+      component: () => import('@/views/Links.vue'),
     },
     {
-      path: '/pingisportalen/contact',
-      component: () => import('@/views/Contact.vue'),
+      path: '/pingisportalen/about',
+      component: () => import('@/views/About.vue'),
     },
     {
       path: "/:catchAll(.*)",

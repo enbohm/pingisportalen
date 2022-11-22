@@ -3,8 +3,8 @@
     <div class="topnav" id="myTopnav">
       <router-link to="/pingisportalen">Hem</router-link>
       <router-link to="/pingisportalen/swedentour">Sweden Tour</router-link>
+      <router-link to="/pingisportalen/links">Länkar</router-link>
       <router-link to="/pingisportalen/about">Om</router-link>
-      <router-link to="/pingisportalen/contact">Kontakt</router-link>
       <a href="javascript:void(0);" class="icon" onclick="toggleResponsive()">
         <i class="fa fa-bars"></i>
       </a>
