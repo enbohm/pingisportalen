@@ -1,4 +1,11 @@
 <template>
+    
+    <select v-model="playerClass" id="playerClassOptions">
+        <option>F12</option>
+        <option>P12</option>
+        <option>F14</option>
+        <option>P14</option>
+    </select>
     <input type="text" v-model="searchInput" placeholder="Efternamn förnamn..." id="searchPlayer" />
     <button @click="clearSearch">Rensa</button>
     <div class="item player" v-for="player in filteredList" :key="player">
@@ -34,7 +41,12 @@
 import BarChart from './BarChart.vue'
 import LineChart from './LineChart.vue'
 
+import p12Data from '../data/p12.csv';
 import p14Data from '../data/p14.csv';
+import f12Data from '../data/f12.csv';
+import f14Data from '../data/f14.csv';
+
+
 export default {
     name: "SearchPlayer",
     components: {
@@ -46,6 +58,7 @@ export default {
         const playerOneColor = '#33BBFF'
         const playerTwoColor = 'red';
         return {
+            playerClass: 'F12',
             selectedPlayers: [],
             searchInput: '',
             barChartData: {
@@ -100,7 +113,7 @@ export default {
             this.barChartData.datasets[0].label = '';
             this.lineChartData.datasets[0].data.length = 0;
             this.lineChartData.datasets[0].label = '';
-            
+
             if (this.selectedPlayers.length > 1) {
                 this.barChartData.datasets[1].data.length = 0;
                 this.barChartData.datasets[1].label = '';
@@ -146,13 +159,25 @@ export default {
             }
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
+        },
+        getDataFromSelectedClass: function (playerClass) {
+            if (this.playerClass == 'F12') {
+                return f12Data
+            }
+            if (this.playerClass == 'F14') {
+                return f14Data;
+            }
+            if (this.playerClass == 'P12') {
+                return p12Data;
+            }
+            return p14Data;
         }
     },
     computed: {
         filteredList() {
             if (!this.searchInput)
                 return "";
-            return p14Data.filter((player) =>
+            return this.getDataFromSelectedClass(this.playerClass).filter((player) =>
                 Object.values(player)[0].toLowerCase().includes(this.searchInput.toLowerCase()));
         },
         top20() {
@@ -166,6 +191,14 @@ export default {
 <style scoped>
 .tabcontainer {
     visibility: hidden;
+}
+
+#playerClassOptions {
+    margin-left: 5px;
+}
+
+#searchPlayer {
+    margin-left: 5px;
 }
 
 .tab {
@@ -187,8 +220,6 @@ export default {
 }
 
 /* Change background color of buttons on hover */
-
-
 .tab button:hover {
     background-color: var(--vt-c-white-mute);
 }
