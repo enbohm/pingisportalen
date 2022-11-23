@@ -1,6 +1,6 @@
 <template>
 
-    <select v-model="playerClass" id="playerClassOptions">
+    <select v-model="playerClass" @change="clearSelectedPlayer" id="playerClassOptions">
         <option>F12</option>
         <option>P12</option>
         <option>F14</option>
@@ -125,8 +125,15 @@ export default {
         clearSearch: function (evt) {
             document.getElementById("searchPlayer").value = "";
             document.getElementsByClassName("tabcontainer")[0].style.visibility = "hidden";
+            var i, tablinks;
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace("active", "");
+            }
             this.searchInput = '';
-
+            this.clearSelectedPlayer();
+        },
+        clearSelectedPlayer: function () {
             this.barChartData.datasets[0].data.length = 0;
             this.barChartData.datasets[0].label = '';
             this.lineChartData.datasets[0].data.length = 0;
