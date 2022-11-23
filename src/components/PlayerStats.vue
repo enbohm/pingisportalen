@@ -181,7 +181,7 @@ export default {
                 Object.values(player)[0].toLowerCase().includes(this.searchInput.toLowerCase()));
         },
         top20() {
-            const sorted = [...p14Data];
+            const sorted = [...this.getDataFromSelectedClass(this.playerClass)];
             return sorted.sort((p1, p2) => p2.total - p1.total).slice(0, 20);
         }
     }
