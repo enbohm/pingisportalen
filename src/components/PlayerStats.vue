@@ -1,11 +1,20 @@
 <template>
-    
+
     <select v-model="playerClass" id="playerClassOptions">
         <option>F12</option>
         <option>P12</option>
         <option>F14</option>
         <option>P14</option>
+        <option>F16</option>
+        <option>P16</option>
+        <option>D18</option>
+        <option>H18</option>
+        <option>D20</option>
+        <option>H20</option>
+        <option>DE</option>
+        <option>HE</option>
     </select>
+
     <input type="text" v-model="searchInput" placeholder="Efternamn förnamn..." id="searchPlayer" />
     <button @click="clearSearch">Rensa</button>
     <div class="item player" v-for="player in filteredList" :key="player">
@@ -38,14 +47,23 @@
 </template>
 
 <script>
+
 import BarChart from './BarChart.vue'
 import LineChart from './LineChart.vue'
 
-import p12Data from '../data/p12.csv';
-import p14Data from '../data/p14.csv';
-import f12Data from '../data/f12.csv';
-import f14Data from '../data/f14.csv';
+import p12Data from '../data/p12.csv'
+import p14Data from '../data/p14.csv'
+import p16Data from '../data/p16.csv'
+import h18Data from '../data/h18.csv'
+import h20Data from '../data/h20.csv'
+import heData from '../data/he.csv'
 
+import f12Data from '../data/f12.csv'
+import f14Data from '../data/f14.csv'
+import f16Data from '../data/f16.csv'
+import d18Data from '../data/d18.csv'
+import d20Data from '../data/d20.csv'
+import deData from '../data/de.csv'
 
 export default {
     name: "SearchPlayer",
@@ -161,16 +179,32 @@ export default {
             evt.currentTarget.className += " active";
         },
         getDataFromSelectedClass: function (playerClass) {
-            if (this.playerClass == 'F12') {
-                return f12Data
+            switch (playerClass) {
+                case 'F12':
+                    return f12Data;
+                case 'F14':
+                    return f14Data;
+                case 'F16':
+                    return f16Data;
+                case 'D18':
+                    return d18Data;
+                case 'D20':
+                    return d20Data;
+                case 'DE':
+                    return deData;
+                case 'P12':
+                    return p12Data;
+                case 'P14':
+                    return p14Data;
+                case 'P16':
+                    return p16Data;
+                case 'H18':
+                    return h18Data;
+                case 'H20':
+                    return h20Data;
+                default:
+                    return heData;
             }
-            if (this.playerClass == 'F14') {
-                return f14Data;
-            }
-            if (this.playerClass == 'P12') {
-                return p12Data;
-            }
-            return p14Data;
         }
     },
     computed: {
@@ -185,7 +219,7 @@ export default {
             return sorted.sort((p1, p2) => p2.total - p1.total).slice(0, 20);
         }
     }
-};
+}
 </script>
 
 <style scoped>
