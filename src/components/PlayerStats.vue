@@ -32,7 +32,7 @@
         </div>
 
         <div id="trend" class="tabcontent">
-            Trending player data...
+            Trending player data to come...
         </div>
     </div>
 </template>

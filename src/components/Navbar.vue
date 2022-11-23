@@ -1,4 +1,3 @@
-
 <template>
     <div class="topnav" id="myTopnav">
       <router-link to="/pingisportalen">Hem</router-link>
