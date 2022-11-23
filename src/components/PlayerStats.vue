@@ -159,17 +159,19 @@ export default {
             document.getElementsByClassName("tablinks")[0].className += " active"
             document.getElementById('bar').style.display = "block";
             document.getElementById('bar').className += " active";
+
             const playerOne = this.selectedPlayers[0];
+     
             this.barChartData.datasets[0].label = Object.values(playerOne)[0];
             this.barChartData.datasets[0].data = [playerOne.p1, playerOne.p2, playerOne.p3, playerOne.p4, playerOne.p5, playerOne.p6, playerOne.p7, playerOne.p8];
             this.lineChartData.datasets[0].label = Object.values(playerOne)[0];
-            this.lineChartData.datasets[0].data = [playerOne.p1, playerOne.p2, playerOne.p3, playerOne.p4, playerOne.p5, playerOne.p6, playerOne.p7, playerOne.p8];
+            this.lineChartData.datasets[0].data = this.sum([playerOne.p1, playerOne.p2, playerOne.p3, playerOne.p4, playerOne.p5, playerOne.p6, playerOne.p7, playerOne.p8], 0, []);
             if (this.selectedPlayers.length > 1) {
                 const playerTwo = this.selectedPlayers[1];
                 this.barChartData.datasets[1].label = Object.values(playerTwo)[0]
                 this.barChartData.datasets[1].data = [playerTwo.p1, playerTwo.p2, playerTwo.p3, playerTwo.p4, playerTwo.p5, playerTwo.p6, playerTwo.p7, playerTwo.p8];
                 this.lineChartData.datasets[1].label = Object.values(playerTwo)[0]
-                this.lineChartData.datasets[1].data = [playerTwo.p1, playerTwo.p2, playerTwo.p3, playerTwo.p4, playerTwo.p5, playerTwo.p6, playerTwo.p7, playerTwo.p8];
+                this.lineChartData.datasets[1].data = this.sum([playerTwo.p1, playerTwo.p2, playerTwo.p3, playerTwo.p4, playerTwo.p5, playerTwo.p6, playerTwo.p7, playerTwo.p8], 0, []);
             }
         },
         openTab: function (evt, tabName) {
@@ -184,6 +186,17 @@ export default {
             }
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
+        },
+        sum: function (array, index, result) {
+            if (index == 7) {
+                return result;
+            }
+            if (index == 0) {
+                result.push(array[index]);
+                return this.sum(array, index+1, result);
+            }
+            result.push((+result[index-1]+ +array[index]).toString())
+            return this.sum(array, index+1, result);
         },
         getDataFromSelectedClass: function (playerClass) {
             switch (playerClass) {
