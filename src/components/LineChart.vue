@@ -15,8 +15,8 @@
 
 canvas {
   width: 100% !important;
-  max-width: 600px;
-  max-height: 600px;
+  max-width: 400px;
+  max-height: 400px;
   height: auto !important;
 }
 </style>

@@ -161,7 +161,6 @@ export default {
             document.getElementById('bar').className += " active";
 
             const playerOne = this.selectedPlayers[0];
-     
             this.barChartData.datasets[0].label = Object.values(playerOne)[0];
             this.barChartData.datasets[0].data = [playerOne.p1, playerOne.p2, playerOne.p3, playerOne.p4, playerOne.p5, playerOne.p6, playerOne.p7, playerOne.p8];
             this.lineChartData.datasets[0].label = Object.values(playerOne)[0];
@@ -193,10 +192,10 @@ export default {
             }
             if (index == 0) {
                 result.push(array[index]);
-                return this.sum(array, index+1, result);
+                return this.sum(array, index + 1, result);
             }
-            result.push((+result[index-1]+ +array[index]).toString())
-            return this.sum(array, index+1, result);
+            result.push((+result[index - 1] + +array[index]).toString())
+            return this.sum(array, index + 1, result);
         },
         getDataFromSelectedClass: function (playerClass) {
             switch (playerClass) {
@@ -252,7 +251,7 @@ export default {
 }
 
 #searchPlayer {
-    margin-left: 5px;
+    margin: 5px;
 }
 
 .tab {
