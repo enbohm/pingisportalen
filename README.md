@@ -4,7 +4,7 @@ This template should help get you started developing Pingisportalen with Vue 3 i
 
 ## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/).
+Visual Studio Code [VSCode](https://code.visualstudio.com/).
 
 ## Customize configuration
 
