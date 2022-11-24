@@ -21,7 +21,7 @@
         <a href="#" @click="selectPlayer($event, player)">{{ Object.values(player)[0] }}</a>
     </div>
     <div class="item error" v-if="searchInput && !filteredList.length">
-        <p>Hittar ingen spelare med namn {{ searchInput }}!</p>
+        <p>Hittar ingen spelare med namn {{ searchInput }} i klassen {{ playerClass }}!</p>
     </div>
 
     <div class="tabcontainer">
