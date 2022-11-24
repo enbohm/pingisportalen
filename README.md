@@ -1,4 +1,4 @@
-# pingisportalen
+# Pingisportalen
 
 This template should help get you started developing Pingisportalen with Vue 3 in Vite.
 
