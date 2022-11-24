@@ -1,6 +1,6 @@
 <template>
 
-    <select v-model="playerClass" @change="clearSelectedPlayer" id="playerClassOptions">
+    <select v-model="playerClass" @change="clearSelectedPlayers" id="playerClassOptions">
         <option>F12</option>
         <option>P12</option>
         <option>F14</option>
@@ -31,8 +31,12 @@
             <button class="tablinks" @click="openTab($event, 'top12')">Top 20</button>
             <button class="tablinks" @click="openTab($event, 'trend')">Trend</button>
         </div>
-        <BarChart :chart-data="barChartData" :chart-options="chartOptions" />
-        <LineChart :chart-data="lineChartData" :chart-options="chartOptions" />
+        <div id="bar" class="tabcontent">
+            <BarChart :chart-data="barChartData" :chart-options="chartOptions" />
+        </div>
+        <div id="line" class="tabcontent">
+            <LineChart :chart-data="lineChartData" :chart-options="chartOptions" />
+        </div>
 
         <div id="top12" class="tabcontent">
             <div class="item player" v-for="(player, index) in top20" :key="player">
@@ -85,7 +89,7 @@ export default {
                     backgroundColor: playerOneColor
                 },
                 {
-                    data: [0, 0, 0, 0, 0, 0, 0, 0],
+                    data: [],
                     backgroundColor: 'red',
                     label: ''
                 }],
@@ -98,7 +102,7 @@ export default {
                     borderColor: playerOneColor
                 },
                 {
-                    data: [0, 0, 0, 0, 0, 0, 0, 0],
+                    data: [],
                     backgroundColor: playerTwoColor,
                     borderColor: playerTwoColor,
                     label: ''
@@ -128,12 +132,12 @@ export default {
             var i, tablinks;
             tablinks = document.getElementsByClassName("tablinks");
             for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace("active", "");
+                tablinks[i].className = tablinks[i].className.replaceAll("active", "");
             }
             this.searchInput = '';
-            this.clearSelectedPlayer();
+            this.clearSelectedPlayers();
         },
-        clearSelectedPlayer: function () {
+        clearSelectedPlayers: function () {
             this.barChartData.datasets[0].data.length = 0;
             this.barChartData.datasets[0].label = '';
             this.lineChartData.datasets[0].data.length = 0;
@@ -156,10 +160,9 @@ export default {
             }
             this.searchInput = Object.values(player)[0];
             document.getElementsByClassName("tabcontainer")[0].style.visibility = "visible";
-            document.getElementsByClassName("tablinks")[0].className += " active"
+            document.getElementsByClassName("tablinks")[0].className = "tablinks active"
             document.getElementById('bar').style.display = "block";
-            document.getElementById('bar').className += " active";
-
+            
             const playerOne = this.selectedPlayers[0];
             this.barChartData.datasets[0].label = Object.values(playerOne)[0];
             this.barChartData.datasets[0].data = [playerOne.p1, playerOne.p2, playerOne.p3, playerOne.p4, playerOne.p5, playerOne.p6, playerOne.p7, playerOne.p8];
@@ -181,10 +184,10 @@ export default {
             }
             tablinks = document.getElementsByClassName("tablinks");
             for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace("active", "");
+                tablinks[i].className = tablinks[i].className.replaceAll("active", "");
             }
             document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
+            evt.currentTarget.className = "tablinks active";
         },
         sum: function (array, index, result) {
             if (index == 7) {
@@ -257,6 +260,13 @@ export default {
 .tab {
     overflow: hidden;
     border-bottom: 1px solid #ccc;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+  position: relative;
 }
 
 /* Style the buttons inside the tab */
