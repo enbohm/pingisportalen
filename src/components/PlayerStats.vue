@@ -160,6 +160,11 @@ export default {
             }
             this.searchInput = Object.values(player)[0];
             document.getElementsByClassName("tabcontainer")[0].style.visibility = "visible";
+            var i, tablinks;
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replaceAll("active", "");
+            }
             document.getElementsByClassName("tablinks")[0].className = "tablinks active"
             document.getElementById('bar').style.display = "block";
             
