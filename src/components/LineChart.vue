@@ -4,12 +4,7 @@
 </template>
 
 <style>
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border-top: none;
-  position: relative;
-}
+
 
 canvas {
   width: 100% !important;
