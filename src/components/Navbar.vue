@@ -1,14 +1,31 @@
 <template>
-    <div class="topnav" id="myTopnav">
-      <router-link to="/pingisportalen">Hem</router-link>
-      <router-link to="/pingisportalen/swedentour">Sweden Tour</router-link>
-      <router-link to="/pingisportalen/links">Pingislänkar</router-link>
-      <router-link to="/pingisportalen/about">Om</router-link>
-      <a href="javascript:void(0);" class="icon" onclick="toggleResponsive()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
+  <div class="topnav" id="myTopnav">
+    <router-link to="/pingisportalen">Hem</router-link>
+    <router-link to="/pingisportalen/swedentour">Sweden Tour</router-link>
+    <router-link to="/pingisportalen/links">Pingislänkar</router-link>
+    <router-link to="/pingisportalen/about">Om</router-link>
+    <a href="javascript:void(0);" class="icon" @click="toggleResponsive">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
 </template>
+
+<script>
+
+export default {
+  name: "Navbar",
+  methods: {
+    toggleResponsive: function () {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  }
+}
+</script>
 
 <style>
 .topnav {
@@ -41,7 +58,10 @@
 }
 
 @media screen and (max-width: 800px) {
-  .topnav a:not(:first-child) {display: none;}
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+
   .topnav a.icon {
     float: right;
     display: block;
@@ -49,12 +69,16 @@
 }
 
 @media screen and (max-width: 800px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+  }
+
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
   }
+
   .topnav.responsive a {
     float: none;
     display: block;
