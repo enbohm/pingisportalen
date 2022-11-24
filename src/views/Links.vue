@@ -1,5 +1,5 @@
 <template>
-  <h2>Pingislänkar</h2>
+  <h2>Pingissajter och länkar</h2>
   <p>Nedan finns ett urval av de bästa pingissajer som alla pingisnördar behöver. Nedan är tio sajer du inte får missa.
   </p>
   <ol>
