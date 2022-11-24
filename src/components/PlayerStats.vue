@@ -128,7 +128,6 @@ export default {
     methods: {
         clearSearch: function (evt) {
             document.getElementById("searchPlayer").value = "";
-            document.getElementsByClassName("tabcontainer")[0].style.visibility = "hidden";
             var i, tablinks;
             tablinks = document.getElementsByClassName("tablinks");
             for (i = 0; i < tablinks.length; i++) {
@@ -250,9 +249,6 @@ export default {
 </script>
 
 <style scoped>
-.tabcontainer {
-    visibility: hidden;
-}
 
 #playerClassOptions {
     margin-left: 5px;
