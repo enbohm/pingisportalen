@@ -16,12 +16,12 @@ export default {
     <p>Sweden Tour är samlingsnamnet för svenska elittävlingar i bordtennis och omfattar både senior- och ungdomsklasser
       identifierade under en ny Elit-standard för tävlingstillstånd. Sweden Tour spelas genom ett antal
       deltävlingar där spelarena samlar poäng i varje tävling. Resultaten i Sweden Tours deltävlingar är kvalificerande
-      för Tourfinalerna, men räknas även som SM-kvalificerande. Mer information om Sweden Tour kan du
+      för Tourfinalerna. Mer information om Sweden Tour kan du
       hitta på <a href="https://www.svenskbordtennis.com/tavling/nationellatavlingar/SwedenTour/" target="_blank">denna
         länk</a>.
     </p>
-    <p>Nedan kan du söka efter en spelare som finns på touren, se statistik samt jämföra spelare. Välj först
-      en klass sedan namn på spelare. Vill du jämför spelare med varandra väljer du först en spelare i sökresultatet
+    <p>Nedan kan du söka efter en spelare som finns på touren, se statistik samt jämföra spelare. Välj
+      en klass sedan sök efter spelare. Vill du jämföra spelare med varandra väljer du först en spelare i sökresultatet
       sedan kan du göra en ny sökning och välja nästa.</p>
   </div>
 
