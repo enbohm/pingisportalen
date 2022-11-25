@@ -166,7 +166,7 @@ export default {
             }
             document.getElementsByClassName("tablinks")[0].className = "tablinks active"
             document.getElementById('bar').style.display = "block";
-            
+
             const playerOne = this.selectedPlayers[0];
             this.barChartData.datasets[0].label = Object.values(playerOne)[0];
             this.barChartData.datasets[0].data = [playerOne.p1, playerOne.p2, playerOne.p3, playerOne.p4, playerOne.p5, playerOne.p6, playerOne.p7, playerOne.p8];
@@ -249,7 +249,6 @@ export default {
 </script>
 
 <style scoped>
-
 #playerClassOptions {
     margin-left: 5px;
 }
@@ -264,10 +263,10 @@ export default {
 }
 
 .tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border-top: none;
-  position: relative;
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+    position: relative;
 }
 
 /* Style the buttons inside the tab */
