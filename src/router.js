@@ -5,19 +5,19 @@ export default createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: '/pingisportalen',
+      path: '/',
       component: Home,
     },
     {
-      path: '/pingisportalen/swedentour',
+      path: '/swedentour',
       component: () => import('@/views/SwedenTour.vue'),
     },
     {
-      path: '/pingisportalen/links',
+      path: '/links',
       component: () => import('@/views/Links.vue'),
     },
     {
-      path: '/pingisportalen/about',
+      path: '/about',
       component: () => import('@/views/About.vue'),
     },
     {
