@@ -45,7 +45,7 @@
         </div>
 
         <div id="trend" class="tabcontent">
-            Trending player data to come...
+            Trending player data to come soon here.
         </div>
     </div>
 </template>
