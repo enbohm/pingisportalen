@@ -13,10 +13,10 @@ export default {
 
   <div class="info">
     <h2>Sweden Tour</h2>
-    <p>Sweden Tour är samlingsnamnet för svenska elittävlingar i bordtennis och omfattar både senior- och ungdomsklasser
-      identifierade under en ny Elit-standard för tävlingstillstånd. Sweden Tour spelas genom ett antal
-      deltävlingar där spelarena samlar poäng i varje tävling. Resultaten i Sweden Tours deltävlingar är kvalificerande
-      för Tourfinalerna. Mer information om Sweden Tour kan du
+    <p>Sweden Tour är samlingsnamnet för svenska elittävlingar i bordtennis och omfattar både senior- och
+      ungdomsklasser. Sweden Tour spelas genom ett antal
+      deltävlingar där spelarena samlar poäng i varje tävling. Tolv spelare med mest poäng sedan möts i
+      Tourfinalerna. Mer information om Sweden Tour kan du
       hitta på <a href="https://www.svenskbordtennis.com/tavling/nationellatavlingar/SwedenTour/" target="_blank">denna
         länk</a>.
     </p>
