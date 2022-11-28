@@ -79,19 +79,23 @@ export default {
         const tourLables = ['Halmstad', 'Rekordspelen', 'Ängby', 'Flyman', 'Söderspelen', 'Eslövsspelen', 'Safir', 'Spårvägsspelen'];
         const playerOneColor = '#33BBFF'
         const playerTwoColor = 'red';
+        const noPlayerSelected = 'Ingen spelare vald'
         return {
             playerClass: 'F12',
             selectedPlayers: [],
             searchInput: '',
+            noPlayerSelectedLabel: noPlayerSelected,
             barChartData: {
                 labels: tourLables,
                 datasets: [{
-                    backgroundColor: playerOneColor
+                    data: [],
+                    backgroundColor: playerOneColor,
+                    label: noPlayerSelected
                 },
                 {
                     data: [],
                     backgroundColor: 'red',
-                    label: ''
+                    label: noPlayerSelected
                 }],
                 chartId: "bar-chart"
             },
@@ -99,13 +103,14 @@ export default {
                 labels: tourLables,
                 datasets: [{
                     backgroundColor: playerOneColor,
-                    borderColor: playerOneColor
+                    borderColor: playerOneColor,
+                    label: noPlayerSelected
                 },
                 {
                     data: [],
                     backgroundColor: playerTwoColor,
                     borderColor: playerTwoColor,
-                    label: ''
+                    label: noPlayerSelected
                 }],
                 chartId: "bar-chart"
             },
@@ -139,9 +144,9 @@ export default {
         clearSelectedPlayers: function () {
             for (let i = 0; i < this.selectedPlayers.length; i++) {
                 this.barChartData.datasets[i].data.length = 0;
-                this.barChartData.datasets[i].label = '';
+                this.barChartData.datasets[i].label = this.noPlayerSelectedLabel;
                 this.lineChartData.datasets[i].data.length = 0;
-                this.lineChartData.datasets[i].label = '';
+                this.lineChartData.datasets[i].label = this.noPlayerSelectedLabel;
             }
             this.selectedPlayers.length = 0;
         },
