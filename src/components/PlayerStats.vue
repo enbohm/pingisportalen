@@ -137,16 +137,11 @@ export default {
             this.clearSelectedPlayers();
         },
         clearSelectedPlayers: function () {
-            this.barChartData.datasets[0].data.length = 0;
-            this.barChartData.datasets[0].label = '';
-            this.lineChartData.datasets[0].data.length = 0;
-            this.lineChartData.datasets[0].label = '';
-
-            if (this.selectedPlayers.length > 1) {
-                this.barChartData.datasets[1].data.length = 0;
-                this.barChartData.datasets[1].label = '';
-                this.lineChartData.datasets[1].data.length = 0;
-                this.lineChartData.datasets[1].label = '';
+            for (let i = 0; i < this.selectedPlayers.length; i++) {
+                this.barChartData.datasets[i].data.length = 0;
+                this.barChartData.datasets[i].label = '';
+                this.lineChartData.datasets[i].data.length = 0;
+                this.lineChartData.datasets[i].label = '';
             }
             this.selectedPlayers.length = 0;
         },
