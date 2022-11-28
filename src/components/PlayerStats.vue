@@ -39,13 +39,18 @@
         </div>
 
         <div id="top12" class="tabcontent">
-            <div class="item player" v-for="(player, index) in top20" :key="player">
+            <div class="item player" v-for="(player, index) in top20">
                 {{ ++index }}. {{ Object.values(player)[0] }} {{ player.total }} poäng.
             </div>
         </div>
 
         <div id="trend" class="tabcontent">
-            Trending player data to come soon here.
+           Poängtrend (differens) från de två senaste tävlingarna.
+            <div class="item player" v-for="player in selectedPlayers">
+                {{ Object.values(player)[0] }}
+                <i :class="this.trendIconClass(player)" aria-hidden="true"></i>
+                {{ this.trendValue(player) }}
+            </div>
         </div>
     </div>
 </template>
@@ -68,6 +73,8 @@ import f16Data from '../data/f16.csv'
 import d18Data from '../data/d18.csv'
 import d20Data from '../data/d20.csv'
 import deData from '../data/de.csv'
+
+import currentRound from '../data/currentRound.csv'
 
 export default {
     name: "SearchPlayer",
@@ -200,6 +207,22 @@ export default {
             result.push((+result[index - 1] + +array[index]).toString())
             return this.sum(array, index + 1, result);
         },
+        trendValue: function (player) {
+            const offset = 2;
+            const index = offset + +Object.values(currentRound[0]);
+            //compare last two points from the competitions
+            let val1 = Object.values(player)[index - 1];
+            let val2 = Object.values(player)[index - 2];
+            return val1 - val2;
+        },
+        trendIconClass: function (player) {
+            let diff = this.trendValue(player);
+            if (diff > 0)
+                return "fa fa-arrow-up green-color"
+            if (diff == 0)
+                return "fa fa-arrow-right yellow-color"
+            return "fa fa-arrow-down red-color"
+        },
         getDataFromSelectedClass: function (playerClass) {
             switch (playerClass) {
                 case 'F12':
@@ -297,5 +320,17 @@ export default {
     .tab button.active {
         background-color: var(--vt-c-black-soft);
     }
+}
+
+.green-color {
+    color: green;
+}
+
+.yellow-color {
+    color: yellow;
+}
+
+.red-color {
+    color: red;
 }
 </style>
