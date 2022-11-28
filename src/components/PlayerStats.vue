@@ -167,17 +167,13 @@ export default {
             document.getElementsByClassName("tablinks")[0].className = "tablinks active"
             document.getElementById('bar').style.display = "block";
 
-            const playerOne = this.selectedPlayers[0];
-            this.barChartData.datasets[0].label = Object.values(playerOne)[0];
-            this.barChartData.datasets[0].data = [playerOne.p1, playerOne.p2, playerOne.p3, playerOne.p4, playerOne.p5, playerOne.p6, playerOne.p7, playerOne.p8];
-            this.lineChartData.datasets[0].label = Object.values(playerOne)[0];
-            this.lineChartData.datasets[0].data = this.sum([playerOne.p1, playerOne.p2, playerOne.p3, playerOne.p4, playerOne.p5, playerOne.p6, playerOne.p7, playerOne.p8], 0, []);
-            if (this.selectedPlayers.length > 1) {
-                const playerTwo = this.selectedPlayers[1];
-                this.barChartData.datasets[1].label = Object.values(playerTwo)[0]
-                this.barChartData.datasets[1].data = [playerTwo.p1, playerTwo.p2, playerTwo.p3, playerTwo.p4, playerTwo.p5, playerTwo.p6, playerTwo.p7, playerTwo.p8];
-                this.lineChartData.datasets[1].label = Object.values(playerTwo)[0]
-                this.lineChartData.datasets[1].data = this.sum([playerTwo.p1, playerTwo.p2, playerTwo.p3, playerTwo.p4, playerTwo.p5, playerTwo.p6, playerTwo.p7, playerTwo.p8], 0, []);
+            var currentPlayer;
+            for (let i = 0; i < this.selectedPlayers.length; i++) {
+                currentPlayer = this.selectedPlayers[i];
+                this.barChartData.datasets[i].label = Object.values(currentPlayer)[0];
+                this.barChartData.datasets[i].data = [currentPlayer.p1, currentPlayer.p2, currentPlayer.p3, currentPlayer.p4, currentPlayer.p5, currentPlayer.p6, currentPlayer.p7, currentPlayer.p8];
+                this.lineChartData.datasets[i].label = Object.values(currentPlayer)[0];
+                this.lineChartData.datasets[i].data = this.sum([currentPlayer.p1, currentPlayer.p2, currentPlayer.p3, currentPlayer.p4, currentPlayer.p5, currentPlayer.p6, currentPlayer.p7, currentPlayer.p8], 0, []);
             }
         },
         openTab: function (evt, tabName) {
