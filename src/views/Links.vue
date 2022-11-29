@@ -1,6 +1,6 @@
 <template>
   <h2>Pingissajter och länkar</h2>
-  <p>Nedan finns ett urval av de bästa pingissajer som alla pingisnördar behöver. Nedan är tio sajer du inte får missa.
+  <p>Nedan finns ett urval av de bästa pingissajer som alla pingisnördar behöver. Nedan är några sajer du inte får missa.
   </p>
   <ol>
     <li><a rel="noreferrer noopener" href="https://www.svenskbordtennis.com/" target="_blank">Svenska
@@ -23,6 +23,9 @@
     <li>
       <a rel="noreferrer noopener" href="https://pingiskalkylatorn.se/" target="_blank">Pingiskalkylatorn</a> - Verktyg
       att följa spelares result och trender med avseende på ranking.
+    </li>
+    <li>
+      <a rel="noreferrer noopener" href="http://ttstat.se/" target="_blank">TTstat.se</a> - All statistik om spelare som du kan önska dig.
     </li>
     <li>
       <a rel="noreferrer noopener" href="http://www.pingispagarna.se/" target="_blank">Pingispågarna</a> - Christian B.
