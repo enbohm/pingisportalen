@@ -17,6 +17,10 @@ export default createRouter({
       component: () => import('@/views/Links.vue'),
     },
     {
+      path: '/news',
+      component: () => import('@/views/News.vue'),
+    },
+    {
       path: '/about',
       component: () => import('@/views/About.vue'),
     },
