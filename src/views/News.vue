@@ -10,11 +10,11 @@
         <template v-slot:feed_body="slotProps">
             <ul>
                 <li v-for="(item, i) in slotProps.items" :key="i">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4><a :href="item.link" target="_blank">{{ item.title }}</a></h4>
+                    <div class="feed">
+                        <div class="feed-card-title">
+                            <a :href="item.link" target="_blank">{{ item.title }}</a>
                         </div>
-                        <div class="card-body">
+                        <div class="feed-card-description">
                             <span slot="body" v-html="item.description"></span>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
 <script>
 import RssWidget from '../components/RssWidget.vue'
 export default {
-    name: 'app',
+    name: 'news',
     components: {
         RssWidget
     }
@@ -36,8 +36,17 @@ export default {
 </script>
   
 <style scoped>
+
 h4 {
     margin: 0px 0 0;
+}
+
+.feed-card-title {
+    margin-bottom: -15px;
+}
+
+.feed-card-description {
+    margin-bottom: 10px;
 }
 
 ul {
@@ -49,5 +58,4 @@ li {
     display: inline-block;
     margin: 0 10px;
 }
-
 </style>
