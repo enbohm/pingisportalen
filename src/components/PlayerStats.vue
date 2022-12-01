@@ -28,7 +28,7 @@
         <div class="tab">
             <button class="tablinks" @click="openTab($event, 'bar')">Poäng</button>
             <button class="tablinks" @click="openTab($event, 'line')">Summering</button>
-            <button class="tablinks" @click="openTab($event, 'top12')">Top 20</button>
+            <button class="tablinks active" @click="openTab($event, 'top20')">Top 20</button>
             <button class="tablinks" @click="openTab($event, 'trend')">Trend</button>
         </div>
         <div id="bar" class="tabcontent">
@@ -38,7 +38,7 @@
             <LineChart :chart-data="lineChartData" :chart-options="chartOptions" />
         </div>
 
-        <div id="top12" class="tabcontent">
+        <div id="top20" class="tabcontent" style="display: block;">
             <div class="item player" v-for="(player, index) in top20">
                 {{ ++index }}. {{ Object.values(player)[0] }} {{ player.total }} poäng.
             </div>
@@ -197,7 +197,8 @@ export default {
             evt.currentTarget.className = "tablinks active";
         },
         sum: function (array, index, result) {
-            if (index == 7) {
+            const lastEvent = 7;
+            if (index == lastEvent) {
                 return result;
             }
             if (index == 0) {
