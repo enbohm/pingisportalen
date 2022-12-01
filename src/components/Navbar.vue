@@ -3,6 +3,7 @@
     <router-link to="/">Hem</router-link>
     <router-link to="/swedentour">Sweden Tour</router-link>
     <router-link to="/links">Pingislänkar</router-link>
+    <router-link to="/news">Nyheter</router-link>
     <router-link to="/about">Om</router-link>
     <a href="javascript:void(0);" class="icon" @click="toggleResponsive">
       <i class="fa fa-bars"></i>
