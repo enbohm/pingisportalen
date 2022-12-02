@@ -1,6 +1,6 @@
 {
   "name": "pingisportalen",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "copy": "mv index.html 404.html",
