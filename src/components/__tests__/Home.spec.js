@@ -1,11 +1,11 @@
 import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
-import Home from '../../views/Home.vue'
+import Component from '../../views/Home.vue'
 
 describe('Home', () => {
-  it('renders properly', () => {
-    const wrapper = mount(Home)
+  it('Home page renders properly', () => {
+    const wrapper = mount(Component)
     expect(wrapper.text()).toContain('Välkommen till Pingisportalen!')
   })
 })
