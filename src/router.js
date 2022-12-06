@@ -21,6 +21,10 @@ export default createRouter({
       component: () => import('@/views/News.vue'),
     },
     {
+      path: '/training',
+      component: () => import('@/views/Training.vue'),
+    },
+    {
       path: '/about',
       component: () => import('@/views/About.vue'),
     },
