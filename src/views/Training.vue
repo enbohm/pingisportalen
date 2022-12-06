@@ -59,6 +59,6 @@
     left: 0;
     width: 33%;
     height: 33%;
-    padding: 10px;
+    padding: 2px;
 }
 </style>
