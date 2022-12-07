@@ -40,12 +40,14 @@
 
         <div id="top20" class="tabcontent" style="display: block;">
             <div class="item player" v-for="(player, index) in top20">
-                {{ ++index }}. {{ Object.values(player)[0] }} {{ player.total }} poäng.
+                {{ ++index }}. <a href="#" @click="selectPlayer($event, player)">{{ Object.values(player)[0] }}</a> {{
+                        player.total
+                }} poäng.
             </div>
         </div>
 
         <div id="trend" class="tabcontent">
-           Poängtrend (differens) från de två senaste tävlingarna.
+            Poängtrend (differens) från de två senaste tävlingarna.
             <div class="item player" v-for="player in selectedPlayers">
                 {{ Object.values(player)[0] }}
                 <i :class="this.trendIconClass(player)" aria-hidden="true"></i>
@@ -214,7 +216,7 @@ export default {
             console.log(currentRound)
             //compare last two points from the competitions
             let val1 = Object.values(player)[index];
-            let val2 = Object.values(player)[index-1];
+            let val2 = Object.values(player)[index - 1];
             return val1 - val2;
         },
         trendIconClass: function (player) {
