@@ -11,9 +11,9 @@
         <li>"Pingisskola 10 lektioner" från Svenska bordtennisförbundet finns i materialet <a
                 href="/pingisskola-10-lektioner.pdf" target="blank_">Pingisskola tio lektioner</a></li>
     </ul>
-    <h3>Servevarianter</h3>
+    <h3>Serve</h3>
     <p>Kanske ett av de viktigaste slagen men övas inte alltid lika flitigt. Kika in på nedan videor som visar "Snake
-        serve" och "Kick serve" hur man kan kan samma server men med varierad skruv.</p>
+        serve" och "Kick serve" hur man kan med samma serverrörelse få varierad skruv.</p>
     <div class="youtube-video-container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/Q1poA30eT84" title="YouTube video player"
             frameborder="0"
