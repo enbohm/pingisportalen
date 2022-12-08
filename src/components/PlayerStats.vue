@@ -213,7 +213,6 @@ export default {
         trendValue: function (player) {
             const offset = 2;
             const index = offset + +Object.values(currentRound[0]);
-            console.log(currentRound)
             //compare last two points from the competitions
             let val1 = Object.values(player)[index];
             let val2 = Object.values(player)[index - 1];
