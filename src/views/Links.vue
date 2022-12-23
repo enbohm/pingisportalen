@@ -3,8 +3,8 @@
   <p>Nedan finns ett urval av de bästa pingissajer som alla pingisnördar behöver. Nedan är några sajer du inte får missa.
   </p>
   <ol>
-    <li><a rel="noreferrer noopener" href="https://www.svenskbordtennis.com/" target="_blank">Svenska
-        bordtennisförbundet</a> - Information som kommer från förbundet. Nyheter, länkar till tävlingar, pressrum, mm.
+    <li><a rel="noreferrer noopener" href="https://sbtf.se" target="_blank">Svenska
+        bordtennisförbundet (SBTF)</a> - Information som kommer från förbundet. Nyheter, länkar till tävlingar, pressrum, mm.
     </li>
     <li>
       <a rel="noreferrer noopener" href="http://resultat.ondata.se/" target="_blank">Tournament Online</a> - Många
