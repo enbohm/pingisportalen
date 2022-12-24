@@ -1,7 +1,7 @@
 <template>
 
     <rss-widget
-        feed="https://api.rss2json.com/v1/api.json?rss_url=https://www.svenskbordtennis.com/Nyheter/Pingisnytt/?rss=True">
+        feed="https://api.rss2json.com/v1/api.json?rss_url=https://sbtf.se/feed">
 
         <template v-slot:feed_header="slotProps">
             <h2 slot="title" v-html="slotProps.rssfeed.title"></h2>
