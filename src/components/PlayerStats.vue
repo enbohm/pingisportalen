@@ -17,6 +17,9 @@
 
     <input type="text" v-model="searchInput" placeholder="Efternamn förnamn..." id="searchPlayer" />
     <button @click="clearSearch">Rensa</button>
+    <div class="item" v-if="searchInput && filteredList.length > 0">
+        <p>Sökresult:</p>
+    </div>
     <div class="item player" v-for="player in filteredList" :key="player">
         <a href="#" @click="selectPlayer($event, player)">{{ Object.values(player)[0] }}</a>
     </div>
@@ -149,6 +152,7 @@ export default {
             }
             this.searchInput = '';
             this.clearSelectedPlayers();
+            this.openTab(evt, 'top20')
         },
         clearSelectedPlayers: function () {
             for (let i = 0; i < this.selectedPlayers.length; i++) {
