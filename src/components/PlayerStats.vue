@@ -21,7 +21,7 @@
         <p>Sökresult:</p>
     </div>
     <div class="item player" v-for="player in filteredList" :key="player">
-        <a href="#" @click="selectPlayer($event, player)">{{ Object.values(player)[0] }}</a>
+        <a href="#" @click="selectPlayer($event, player)">{{ Object.values(player)[0] }}</a> {{ player.total}} poäng
     </div>
     <div class="item error" v-if="searchInput && !filteredList.length">
         <p>Hittar ingen spelare med namn {{ searchInput }} i klassen {{ playerClass }}!</p>
